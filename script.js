@@ -15,7 +15,15 @@ function render(filter='All'){
   const link=safeUrl(p.url||'');if(link){const a=el('a','product-cta','VIEW LISTING ↗');a.href=link;a.target='_blank';a.rel='noopener noreferrer';body.append(a)}else{const b=el('span','product-cta disabled','COMING SOON');body.append(b)}
   card.append(visual,body);grid.append(card);
  });
- document.querySelectorAll('.filter').forEach(b=>{const selected=b.dataset.filter===filter;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected))});
+ document.querySelectorAll('[data-platform]').forEach(a => {
+  const url = safeUrl(a.getAttribute('href') || '');
+
+  if (url) {
+    a.href = url;
+  } else {
+    a.classList.add('platform-placeholder');
+  }
+});(b=>{const selected=b.dataset.filter===filter;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected))});
 }
 render();document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>render(b.dataset.filter)));
 const toggle=document.querySelector('.menu-toggle');const mobile=document.getElementById('mobile-nav');toggle.addEventListener('click',()=>{const isOpen=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!isOpen));mobile.hidden=isOpen});mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.hidden=true;toggle.setAttribute('aria-expanded','false')}));
