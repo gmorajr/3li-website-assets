@@ -12,4 +12,11 @@ window.ELI_PRODUCTS = [
   {id:'DEMO-006',name:'Training dumbbells',category:'Fitness',condition:'Sample · Good',price:32,compareAt:null,badge:'SAMPLE',emoji:'🏋️',image:'',url:''}
 ];
 /* Replace these generic links with actual Eli account/profile URLs before launch. */
-window.ELI_SOCIAL = {offerup:'',facebook:'',instagram:'',tiktok:''};
+/* 3LI official marketplace and social profiles */
+window.ELI_SOCIAL = {
+  offerup: 'https://offerup.co/Ux14IBQnN7b',
+  facebook: '',
+  depop: 'https://www.depop.com/shop3li/',
+  instagram: '',
+  tiktok: ''
+};
